@@ -21,8 +21,7 @@ public class TestController {
 	
 	@RequestMapping("test")
 	public String test() throws IOException{
-		//不通过id,端口来调用；
-		//通过服务名来获取实例
+		//通过id,端口来调用；
 		List<ServiceInstance> instances = discoveryClient.getInstances("smsapp");
 		ServiceInstance serviceInstance = instances.get(0);
 		
