@@ -29,7 +29,7 @@ public class TestController {
 		int port = serviceInstance.getPort();
 		
 		URL url = new URL("http://" + host + ":" + port + "/send");
-		byte[] result = new byte[3];
+		byte[] result = new byte[24];
 		
 		InputStream input = url.openStream();
 		IOUtils.readFully(input, result);
