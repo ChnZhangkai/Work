@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 public class WebsiteApplication {
 	
 	@Bean
-	@LoadBalanced //ribbon,eureka,resttemplate集成
+	@LoadBalanced //ribbon,eureka,resttemplate集成(ribbon负载均衡)
 	public RestTemplate restTemplate(){
 		return new RestTemplate();
 	}
