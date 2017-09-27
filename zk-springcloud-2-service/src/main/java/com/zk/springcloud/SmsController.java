@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SmsController {
 	
+	/**
+	 * 服务提供测试
+	 * @return
+	 */
 	@RequestMapping("/send")
 	public String test(){
 		
