@@ -15,7 +15,7 @@ public class SmsController {
 		
 		System.out.println("被调用");
 		
-		return "服务提供者被调用";
+		return "服务1被调用";
 		
 	}
 	
