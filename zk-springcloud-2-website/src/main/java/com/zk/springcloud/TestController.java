@@ -1,43 +1,30 @@
 package com.zk.springcloud;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.List;
+import java.util.HashMap;
 
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class TestController {
 	
 	@Autowired
-	DiscoveryClient discoveryClient; 
-	
+	RestTemplate restTemplate;
 	
 	@RequestMapping("test")
-	public String test() throws IOException{
-		//通过id,端口来调用；
-		List<ServiceInstance> instances = discoveryClient.getInstances("smsapp");
-		ServiceInstance serviceInstance = instances.get(0);
+	public String test(){
 		
-		String host = serviceInstance.getHost();
-		int port = serviceInstance.getPort();
+		//"http://" + host + ":" + port + "/send"
+		@SuppressWarnings({ "unchecked", "rawtypes" }) //去除警告黄线
+		String result = restTemplate.getForObject("http://smsapp/send", String.class,new HashMap());
 		
-		URL url = new URL("http://" + host + ":" + port + "/send");
-		byte[] result = new byte[24];
+		System.out.println("调用了：" + result);
 		
-		InputStream input = url.openStream();
-		IOUtils.readFully(input, result);
-		
-		System.out.println(new String(result));
-		
-		return new String(result);
+		return result;
 		
 	}
+	
 	
 }
