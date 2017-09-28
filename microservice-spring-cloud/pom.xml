@@ -7,7 +7,7 @@
 	<artifactId>microservice-spring-cloud</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-
+	<!--  -->
 	<modules>
 		<module>microservice-consumer-movie</module>
 		<module>microservice-provider-user</module>
