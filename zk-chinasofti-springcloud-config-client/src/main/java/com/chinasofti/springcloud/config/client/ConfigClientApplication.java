@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 @EnableEurekaClient
-@RefreshScope
+@RefreshScope //消息总线
 public class ConfigClientApplication {
 	
 	public static void main(String[] args) {
